@@ -529,8 +529,10 @@ class ResultTest extends BaseTestCase
         $result = Result::fromApiResponseWithItems($responseMock);
 
         $this->assertTrue($result->success());
-        $this->assertCount($count, $result->getData());
-        $this->assertInstanceOf(PickupPoint::class, $result->getData()[0]);
+        $data = $result->getData();
+        $this->assertNotNull($data);
+        $this->assertCount($count, $data);
+        $this->assertInstanceOf(PickupPoint::class, $data[0]);
     }
 
     public function testFromConfigApiResponseHandlesInvalidJson(): void

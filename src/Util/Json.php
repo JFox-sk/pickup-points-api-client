@@ -28,7 +28,10 @@ final class Json
      */
     public static function decode(string $json): array
     {
-        return \json_decode($json, true, 32, \JSON_THROW_ON_ERROR);
+        /** @var array $result */
+        $result = \json_decode($json, true, 32, \JSON_THROW_ON_ERROR);
+
+        return $result;
     }
 
     /**

@@ -112,7 +112,7 @@ class DataTest extends BaseTestCase
         $text = $this->getRandomString('text');
 
         $data[$key] = new class($text) {
-            protected $text;
+            protected string $text;
 
             public function __construct(string $text)
             {
